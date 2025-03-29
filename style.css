@@ -1,0 +1,333 @@
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Animated flowing gradient using stormy ocean colors */
+  background: linear-gradient(-45deg, #1B262C, #0F4C75, #3282B8, #1B262C);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  color: #BBE1FA;
+  line-height: 1.6;
+  position: relative;
+  min-height: 100%;
+  overflow-x: hidden;
+  padding-top: 80px; /* offset for fixed header */
+}
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* New Gradient Wave Text Styles (used for project cards) */
+.gradient-wave-text {
+  background: linear-gradient(-45deg, #2FC0C6, #9C2CD1, #FF9A0B, #FF5A8C, #2FC0C6);
+  background-size: 300% 300%;
+  animation: wave 5s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+@keyframes wave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Animation Keyframes for Hero Heading --- */
+/* 1. Typewriter: whole text revealed via steps */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 3s steps(30) forwards;
+}
+
+/* 2. Bounce In Letter */
+@keyframes bounceInLetter {
+  0% { opacity: 0; transform: scale(0.3) translateY(-50px); }
+  50% { opacity: 1; transform: scale(1.2) translateY(10px); }
+  70% { transform: scale(0.9) translateY(-5px); }
+  100% { transform: scale(1) translateY(0); }
+}
+.bounceInLetter { animation: bounceInLetter 0.8s forwards; }
+
+/* 3. Bounce In Word */
+@keyframes bounceInWord {
+  0% { opacity: 0; transform: translateY(-50px) scale(0.3); }
+  50% { opacity: 1; transform: translateY(10px) scale(1.2); }
+  70% { transform: translateY(-5px) scale(0.9); }
+  100% { transform: translateY(0) scale(1); }
+}
+.bounceInWord { animation: bounceInWord 0.8s forwards; }
+
+/* 4. Slide In Right Letter */
+@keyframes slideInRight {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.slideInRightLetter { animation: slideInRight 1s forwards; }
+
+/* 5. Slide In Right Word */
+.slideInRightWord { animation: slideInRight 1s forwards; }
+
+/* 6. Roll In Right Letter */
+@keyframes rollInRight {
+  0% { transform: translateX(100%) rotate(120deg); opacity: 0; }
+  100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+.rollInRightLetter { animation: rollInRight 1s forwards; }
+
+/* 7. Roll In Right Word */
+.rollInRightWord { animation: rollInRight 1s forwards; }
+
+/* 8. Slide In Left Letter */
+@keyframes slideInLeft {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.slideInLeftLetter { animation: slideInLeft 1s forwards; }
+
+/* 9. Slide In Left Word */
+.slideInLeftWord { animation: slideInLeft 1s forwards; }
+/* --- End Animation Keyframes --- */
+
+/* Header and Navigation */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(27,38,44,0.8);
+  padding: 1rem 2rem;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #BBE1FA;
+  text-transform: uppercase;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #BBE1FA;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+nav ul li a:hover {
+  color: #3282B8;
+  transform: translateY(-3px);
+}
+
+/* Section Styles */
+section {
+  padding: 100px 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.section-title::after {
+  content: '';
+  width: 50px;
+  height: 3px;
+  background: #3282B8;
+  display: block;
+  margin: 0.5rem auto;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #BBE1FA;
+}
+#heroHeading {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+#heroText { display: inline-block; }
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  transform: translateY(50px);
+  animation: fadeInUp 1.2s ease-out 0.5s forwards;
+}
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #BBE1FA;
+  background: transparent;
+  border: 2px solid #BBE1FA;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #BBE1FA;
+  color: #0F4C75;
+  transform: translateY(-5px);
+}
+
+/* About Section Cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-top: 3rem;
+}
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 3rem;
+}
+.project-item {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Contact Section */
+.contact {
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(27,38,44,0.9);
+}
+footer p { margin-bottom: 1rem; }
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+footer a {
+  color: #BBE1FA;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.modal-content {
+  background: #1B262C;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  color: #BBE1FA;
+  text-align: center;
+}
+.modal-content h3 { margin-bottom: 1rem; }
+.modal-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+.modal .close-btn {
+  background: #3282B8;
+  color: #BBE1FA;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+  margin-top: 1rem;
+}
+.modal .close-btn:hover {
+  background: #BBE1FA;
+  color: #0F4C75;
+}
+
+/* Animations for initial hero fade-in */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header { padding: 1rem; }
+  #heroHeading { font-size: 3rem; }
+  .hero p { font-size: 1.2rem; }
+  section { padding: 80px 1rem; }
+}
