@@ -1,142 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Personal Website</title>
-  <meta name="description" content="A minimalist, cutting-edge personal website showcasing creativity and innovation.">
-  <meta name="keywords" content="minimalist, creative, personal website, design-forward">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David P. Donohue | Portfolio</title>
+    <meta name="description" content="Welcome to the Portfolio of David P. Donohue">
+    <meta name="keywords" content="David P Donohue, portfolio, web developer, cybersecurity, software engineer, implementation manager">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Header with Navigation -->
-  <header>
-    <div class="logo">David P. Donohue</div>
-    <nav>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <h1 id="heroHeading"><span id="heroText" class="lang-text">Welcome to My World</span></h1>
-    <p>A minimalist, cutting-edge space for creativity and innovation.</p>
-    <a href="#about" class="btn">Learn More</a>
-  </section>
-  
-  <!-- About Section with Cards -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="cards-container">
-      <div class="card" onclick="openModal('myStory')">
-        <h3>My Story</h3>
-        <p>Learn more about me!</p>
-      </div>
-      <div class="card" onclick="openModal('resume')">
-        <h3>Resume</h3>
-        <p>View my experience and skills.</p>
-      </div>
-      <div class="card" onclick="openModal('favorites')">
-        <h3>Favorites</h3>
-        <p>Check out my favorite things!</p>
-      </div>
+<body class="splash-page">
+    <div class="container">
+        <h1>David P. Donohue</h1>
+        <p class="subtitle">Web Developer | Cybersecurity Professional | Implementation Manager</p>
+        <p class="intro-tagline">Welcome to My World!</p>
+        <div class="loader"></div>
+        <button onclick="location.href='main.html'" class="btn">Enter Site</button>
+        <div class="social-links">
+            <a href="https://github.com/Donohue76" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/davidpdonohue" target="_blank">LinkedIn</a>
+            <a href="mailto:donohue76@hotmail.com">Email</a>
+        </div>
     </div>
-  </section>
-  
-  <!-- Modal for My Story -->
-  <div class="modal" id="myStory">
-    <div class="modal-content">
-      <h3>My Story</h3>
-      <p>
-        Hi, I'm David Donohue—a late-to-Christmas Capricorn whose childhood in Ormond Beach, Florida, was a curious blend of sunshine, horses, ocean waves, celebrities, serial killers, sports, and NASCAR—basically, everything that makes Florida both fascinating and terrifying. I started life with two great parents but, due to an unfortunate twist of fate at age five, found myself down to one exceptional parent, navigating a childhood that oddly made me the youngest of five yet essentially an only child. My natural tendency was to be both introverted and extroverted simultaneously, armed from a tender age with an intellect too robust for my own—and everyone else's—good. This meant fewer friendships but stronger ones, punctuated by weekends spent fishing with my grandmother, dominating soccer fields, and mastering tennis courts.
-        <br><br>
-        After enduring a traumatic event in sixth grade, followed by a very public emotional fallout, I found refuge at a boarding school near Chicago. As the token American among wealthy classmates from Mexico, South America, and Italy, I finally felt comfortably anonymous yet excitingly exotic—a perfect recipe for the unforgettable time of my life. It was at boarding school where I mastered the soccer pitch, honed my tennis skills, and conquered the Junior Grand Prix equestrian circuit. I traveled to Rome, Italy, for the first time; experiencing real Italian food and discovering the breathtaking art, architecture, and the wonders of both ancient and Renaissance Rome—Michelangelo, Da Vinci, the Coliseum, Trevi Fountain, the Spanish Steps, Vatican City, the Vatican Gardens, St. Peter's Basilica, and countless other marvels. It was the single greatest year of my life, filled with enduring friendships and extraordinary experiences, including celebrating midnight mass with future saint Pope John Paul II on Christmas Eve and enjoying a private mass and audience with him and my 203 classmates in the Sistine Chapel a few days later. The year culminated in competing at the prestigious Torneo de Amistad soccer tournament in Rome, where my team made it all the way to the finals. Although we faced a heartbreaking defeat in a double overtime penalty kick shootout against the top-ranked team in the world, it was an unforgettable personal triumph as the sole American player in the tournament.
-        <br><br>
-        After boarding school, I returned home where thankfully the events from two years earlier had mostly been forgotten—mostly. High school was, well, high school. My freshman and sophomore years were rough, with my primary refuge coming from soccer and tennis, and from being intellectually sharp enough to verbally dismantle my bullies, aided by protective upperclassmen teammates. My junior and senior years greatly improved as I made lasting friendships once I realized that the classmates I'd initially admired weren't worth the pursuit. High school brought notable successes, including three state soccer championships, leading roles in musicals such as Oklahoma!, No No Nanette, and Guys and Dolls, and an incredible trip to Costa Rica between junior and senior years. There, I explored cloud forests, rainforests, an active volcano, black sand beaches, perfected my Spanish, and built more lifelong friendships. However, high school also brought profound losses, as I tragically lost one of my best friends and his girlfriend in a car accident, and another close friend to a motorcycle accident just outside my house—losses I still deeply feel today. Despite these challenges, I graduated third in my class, secured a full scholarship to a top 15 university, and enjoyed a memorable summer with my best friends before embarking on college.
-      </p>
-      <button class="close-btn" onclick="closeModal('myStory')">Close</button>
-    </div>
-  </div>
-  
-  <!-- Modal for Resume -->
-  <div class="modal" id="resume">
-    <div class="modal-content">
-      <h3>Resume</h3>
-      <p>
-        Experienced technology professional specializing in Healthcare IT, Software Engineering, Cloud Infrastructure, and Security &amp; Compliance. With a strong background in implementing and optimizing Electronic Medical Records (EMR) systems such as gMed, Allscripts, and XIFIN, I have consistently delivered successful, efficient go-lives across diverse healthcare environments. As a software engineer, I have developed and maintained robust web applications utilizing Ruby on Rails, JavaScript, Vue.js, React.js, and PostgreSQL, ensuring high-quality deployments and scalable cloud infrastructures. My expertise extends into cloud infrastructure management on AWS, Google Cloud, and Azure, coupled with robust cybersecurity knowledge including HIPAA compliance, ethical hacking, and network security. Passionate about driving operational efficiency, I utilize Agile methodologies, automation tools, and analytics-driven strategies to streamline workflows and enhance productivity. Dedicated to continuous learning and leveraging technology to improve healthcare outcomes.
-      </p>
-      <p>
-        For more details, check out my LinkedIn profile:
-        <a href="https://linkedin.com/in/davidpdonohue" target="_blank" class="linkedin-btn">
-          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <title>LinkedIn</title>
-            <path fill="#BBE1FA" d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.036-1.85-3.036-1.853 0-2.137 1.445-2.137 2.937v5.668h-3.554V9h3.413v1.561h.049c.476-.9 1.637-1.85 3.372-1.85 3.605 0 4.271 2.373 4.271 5.459v6.282zM5.337 7.433c-1.144 0-2.073-.928-2.073-2.07C3.264 4.227 4.193 3.3 5.337 3.3c1.145 0 2.074.927 2.074 2.064 0 1.142-.929 2.07-2.074 2.07zm1.777 13.019H3.56V9h3.554v11.452z"/>
-          </svg>
-        </a>
-      </p>
-      <button class="close-btn" onclick="closeModal('resume')">Close</button>
-    </div>
-  </div>
-  
-  <!-- Modal for Favorites -->
-  <div class="modal" id="favorites">
-    <div class="modal-content">
-      <h3>Favorites</h3>
-      <p>
-        Some of my favorite things include learning new technologies, playing video games, and hiking. I also love coffee and reading books on personal growth!
-      </p>
-      <button class="close-btn" onclick="closeModal('favorites')">Close</button>
-    </div>
-  </div>
-  
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-item">
-        <h3 class="gradient-wave-text">Opfynder</h3>
-        <p class="gradient-wave-text">Opfynder is your personal job search and application tracker, simplifying your journey to career success.</p>
-      </div>
-      <div class="project-item">
-        <h3>Project Two</h3>
-        <p>An exploration into cutting-edge technology and artistic expression.</p>
-      </div>
-      <div class="project-item">
-        <h3>Project Three</h3>
-        <p>A bold project that challenges traditional layouts.</p>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact">
-      <p>
-        I'd love to hear from you! Whether you're interested in collaborating or just want to say hi, feel free to reach out.
-      </p>
-      <a href="mailto:david@opfynder.com" class="btn">Email Me</a>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 David P. Donohue. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://github.com/donohue76" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://linkedin.com/in/davidpdonohue" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:david@opfynder.com">Email</a>
-    </div>
-  </footer>
-  
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
