@@ -1,38 +1,86 @@
-// Fade-wave rotating languages
-const languages = [
-  "Welcome to My World",
-  "Fáilte go Mo Shaol",
-  "Bienvenido a Mi Mundo",
-  "Bienvenue dans Mon Monde",
-  "Benvenuto nel Mio Mondo",
-  "Willkommen in Meiner Welt",
-  "Bem-vindo ao Meu Mundo",
-  "私の世界へようこそ",
-  "欢迎来到我的世界",
-  "내 세상에 오신 것을 환영합니다"
-];
+/* davidpdonohue/scripts.js*/
 
-let currentLangIndex = 0;
+/* Run rotating languages animation only if not on splash page */
+if (!document.body.classList.contains("splash-page")) {
+  const languages = [
+    "Welcome",
+    "Fáilte",
+    "Bienvenido",
+    "Bienvenue",
+    "Benvenuto",
+    "Willkommen",
+    "私の世界へようこそ",
+    "欢迎来到我的世界",
+  ];
 
-function updateHeroText(newText) {
-  const heroText = document.getElementById("heroText");
-  if(heroText){
-    heroText.textContent = newText;
-    heroText.className = "fadeWave";
+  const animations = [
+    "typewriter", "bounceInLetter", "bounceInWord", "slideInRightLetter",
+    "slideInRightWord", "rollInRightLetter", "rollInRightWord", "slideInLeftLetter",
+    "slideInLeftWord"
+  ];
+  let animationPool = [...animations];
+  let lastAnimClass = "";
+  let currentLangIndex = 0;
+
+  function updateHeroText(newText, animClass) {
+    const heroText = document.getElementById("heroText");
+    heroText.innerHTML = ""; // Clear previous content
+
+    if (animClass === "typewriter") {
+      heroText.textContent = newText;
+      heroText.classList.add("typewriter");
+    } else if (animClass.includes("Letter")) {
+      heroText.classList.remove("typewriter");
+      for (let i = 0; i < newText.length; i++) {
+        const span = document.createElement("span");
+        span.textContent = newText[i];
+        span.style.animationDelay = (i * 0.1) + "s";
+        span.classList.add(animClass);
+        heroText.appendChild(span);
+      }
+    } else if (animClass.includes("Word")) {
+      heroText.classList.remove("typewriter");
+      const words = newText.split(" ");
+      words.forEach((word, index) => {
+        const span = document.createElement("span");
+        span.textContent = word + " ";
+        span.style.animationDelay = (index * 0.2) + "s";
+        span.classList.add(animClass);
+        heroText.appendChild(span);
+      });
+    }
   }
+
+  function changeLanguage() {
+    currentLangIndex = (currentLangIndex + 1) % languages.length;
+    const heroText = document.getElementById("heroText");
+    heroText.classList.remove(...animations);
+
+    // Reset pool if empty
+    if (animationPool.length === 0) {
+      animationPool = [...animations];
+    }
+    let randomIndex = Math.floor(Math.random() * animationPool.length);
+    let animClass = animationPool[randomIndex];
+    if (animationPool.length > 1) {
+      while (animClass === lastAnimClass) {
+        randomIndex = Math.floor(Math.random() * animationPool.length);
+        animClass = animationPool[randomIndex];
+      }
+    }
+    animationPool.splice(randomIndex, 1);
+    lastAnimClass = animClass;
+
+    updateHeroText(languages[currentLangIndex], animClass);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateHeroText(languages[currentLangIndex], animations[0]);
+    setInterval(changeLanguage, 3000);
+  });
 }
 
-function changeLanguage() {
-  currentLangIndex = (currentLangIndex + 1) % languages.length;
-  updateHeroText(languages[currentLangIndex]);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  updateHeroText(languages[currentLangIndex]);
-  setInterval(changeLanguage, 4000);
-});
-
-// Modal Functions
+/* Modal Functions (run on all pages) */
 function openModal(modalId) {
   document.getElementById(modalId).style.display = "flex";
 }
@@ -40,7 +88,6 @@ function closeModal(modalId) {
   document.getElementById(modalId).style.display = "none";
 }
 
-// Prevent scroll restoration on refresh
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
