@@ -316,18 +316,24 @@ footer a {
 }
 
 /* Modal Styles (shared) */
+/* Updated Modal Container */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: none;
+  background: rgba(0, 0, 0, 0.7);
+  display: none; /* Hide modals by default */
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;  /* Align to top if needed */
+  overflow-y: auto;         /* Allow scrolling */
   z-index: 100;
+  padding: 20px;
 }
+
+
+/* Updated Modal Content */
 .modal-content {
   background: #1B262C;
   padding: 2rem;
@@ -336,7 +342,10 @@ footer a {
   width: 100%;
   color: #BBE1FA;
   text-align: center;
+  max-height: 80vh;         /* limit the height to 80% of the viewport */
+  overflow-y: auto;         /* enable vertical scrolling within the modal content */
 }
+
 .modal-content h3 {
   margin-bottom: 1rem;
 }
@@ -355,10 +364,17 @@ footer a {
   transition: background 0.3s;
   margin-top: 1rem;
 }
+
 .modal .close-btn:hover {
   background: #BBE1FA;
   color: #0F4C75;
 }
+
+.linkedin-btn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 
 /* Responsive Adjustments (shared) */
 @media (max-width: 768px) {
