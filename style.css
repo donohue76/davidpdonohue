@@ -1,4 +1,6 @@
 /* davidpdonohue/style.css */
+/* Last Updated: 2024-01-09 */
+/* Major Changes: Updated section heading styles for better maintainability */
 
 /*********************************************************
  * 1. GLOBAL STYLES & RESETS
@@ -149,14 +151,39 @@ body.splash-page .social-links a {
     position: relative;
 }
 
-/* Section Title Styling */
+/* UPDATED: Section Headings - Base Styles */
 .section-title {
-    font-size: 3rem;
     margin-top: 2rem;
     margin-bottom: 3rem;
     text-transform: uppercase;
     color: #BBE1FA;
     text-align: center;
+}
+
+/* UPDATED: Individual Section Heading Styles */
+/* Home/Hero Section Heading */
+#heroText {
+    font-size: 4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* About Section Heading */
+#about .section-title {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+/* Projects Section Heading */
+#projects .section-title {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+/* Contact Section Heading */
+#contact .section-title {
+    font-size: 3rem;
+    font-weight: 600;
 }
 
 /* Header & Navigation */
@@ -201,13 +228,9 @@ nav ul li a:hover {
 
 /* Hero Section */
 #hero {
-    padding-top: 0;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
     text-align: center;
-}
-
-#heroText {
-    font-size: 3rem;
+    padding-top: 100px; /* Reduced from default section padding */
 }
 
 .hero-description {
@@ -255,6 +278,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
+/* Projects Grid Layout */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -265,20 +289,36 @@ nav ul li a:hover {
     padding: 0 2rem;
 }
 
+/* Project Item Styling */
 .project-item {
     background: rgba(255, 255, 255, 0.1);
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
+/* Project Item Link */
+.project-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Project Item Hover Effects */
 .project-item:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-decoration: none;
 }
 
-/* Gradient Wave for Opfynder */
+/* Gradient Wave Effects */
 .gradient-wave {
     background: linear-gradient(
         -45deg,
@@ -295,11 +335,20 @@ nav ul li a:hover {
     display: inline-block;
 }
 
+.project-item .gradient-wave {
+    width: 100%;
+    height: 100%;
+}
+
 /* Contact Section */
 #contact {
     text-align: center;
     margin-bottom: 0;
-    min-height: calc(100vh - 100px);
+    min-height: 100vh; /* Ensure the Contact section takes up the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content at the top */
+    padding-bottom: 100px; /* Add space for the footer */
 }
 
 .contact p {
@@ -310,11 +359,13 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    margin-top: auto;
+    width: 100%;
     padding: 2rem;
     text-align: center;
-    background: rgba(27, 38, 44, 0.8);
-    backdrop-filter: blur(5px);
+    background: rgba(27, 38, 44, 0.5); /* Transparent background */
+    backdrop-filter: blur(5px); /* Adds a blur effect */
+    position: relative; /* Ensure it stays within the Contact section */
+    margin-top: auto; /* Pushes the footer to the bottom of the Contact section */
 }
 
 footer .social-links {
@@ -466,7 +517,14 @@ footer a {
         padding: 1rem;
     }
 
-    .hero h1 {
+    /* UPDATED: Mobile Section Heading Sizes */
+    #heroText {
+        font-size: 2.5rem;
+    }
+    
+    #about .section-title,
+    #projects .section-title,
+    #contact .section-title {
         font-size: 2.5rem;
     }
 
