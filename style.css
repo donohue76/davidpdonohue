@@ -1,385 +1,508 @@
 /* davidpdonohue/style.css */
 
 /*********************************************************
- * GLOBAL STYLES & RESSETS
+ * 1. GLOBAL STYLES & RESETS
  *********************************************************/
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-  height: 100%;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #BBE1FA;
-  line-height: 1.6;
-  position: relative;
-  min-height: 100%;
-  overflow-x: hidden;
-  padding-top: 80px; /* offset for fixed header */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Shared Animations */
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for fixed navbar */
+    height: 100%;
 }
-@keyframes wave {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes fadeWave {
-  0%, 100% { opacity: 0.4; transform: translateY(5px); }
-  50% { opacity: 1; transform: translateY(-5px); }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #BBE1FA;
+    line-height: 1.6;
+    background: url('assets/hero-ocean-storm.png') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    padding-top: 80px; /* Offset for fixed navbar */
+    height: 100vh;
+    position: relative;
 }
 
 /*********************************************************
- * STYLES FOR INDEX.HTML (SPLASH PAGE)
+ * 2. ANIMATIONS
+ *********************************************************/
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes wave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeWave {
+    0%, 100% { opacity: 0.4; transform: translateY(5px); }
+    50% { opacity: 1; transform: translateY(-5px); }
+}
+
+/* Modal Animations */
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalScaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Section Animations */
+@keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*********************************************************
+ * 3. INDEX.HTML (SPLASH PAGE) STYLES
  *********************************************************/
 body.splash-page {
-  background: url('assets/hero-ocean-storm.png') no-repeat center center fixed;
-  background-size: cover;
+    background: url('assets/hero-ocean-storm.png') no-repeat center center fixed;
+    background-size: cover;
 }
+
 body.splash-page .container {
-  text-align: center;
-  padding: 2rem;
-  z-index: 1;
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  transition: opacity 1s ease;
+    text-align: center;
+    padding: 2rem;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: opacity 1s ease;
 }
+
 body.splash-page h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 body.splash-page .subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: #BBE1FA;
-  font-weight: 300;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #BBE1FA;
+    font-weight: 300;
 }
+
 body.splash-page .intro-tagline {
-  font-size: 2rem;
-  font-weight: 600;
-  display: inline-block;
-  animation: fadeWave 3s ease-in-out infinite;
+    font-size: 2rem;
+    font-weight: 600;
+    display: inline-block;
+    animation: fadeWave 3s ease-in-out infinite;
 }
+
 body.splash-page .btn {
-  margin-top: 3rem;
+    margin-top: 3rem;
 }
+
 body.splash-page .social-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 32px;
 }
+
 body.splash-page .social-links a {
-  color: #BBE1FA;
+    color: #BBE1FA;
 }
+
 /* Fade-out effect for splash container */
 .splash-page .container.fade-out {
-  opacity: 0;
+    opacity: 0;
 }
 
 /*********************************************************
- * STYLES FOR MAIN.HTML (MAIN PAGE)
+ * 4. MAIN.HTML STYLES
  *********************************************************/
-body.main-page {
-  background: url('assets/hero-ocean-storm.png') no-repeat center center fixed;
-  background-size: cover;
-}
-body.main-page .container {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  opacity: 0;
-  transition: opacity 1.5s ease;
-}
-body.main-page .container.loaded {
-  opacity: 1;
+
+/* Main Container Layout */
+#mainContainer {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    position: relative;
+    padding-bottom: 100px; /* Space for footer */
 }
 
-/*********************************************************
- * SHARED COMPONENT STYLES (Header, Navigation, Sections, etc.)
- *********************************************************/
-/* Header and Navigation */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(27,38,44,0.8);
-  padding: 1rem 2rem;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-body.main-page header {
-  background: rgba(27,38,44,0.6); /* translucent navbar */
-  backdrop-filter: blur(5px);
-}
-header .logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #BBE1FA;
-  text-transform: uppercase;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-nav ul li a {
-  text-decoration: none;
-  color: #BBE1FA;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-}
-nav ul li a:hover {
-  color: #3282B8;
-  transform: translateY(-3px);
+/* Section Layout */
+#mainContainer section {
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-align: start;
+    position: relative;
 }
 
-/* Section Styles (shared) */
-section {
-  padding: 100px 2rem;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
+/* Section Title Styling */
 .section-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  position: relative;
-}
-.section-title::after {
-  content: '';
-  width: 50px;
-  height: 3px;
-  background: #3282B8;
-  display: block;
-  margin: 0.5rem auto;
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    color: #BBE1FA;
+    text-align: center;
 }
 
-/* Hero Section (shared) */
-.hero {
-  position: relative;
-  overflow: hidden;
-  color: #BBE1FA;
-  background: url('assets/hero-ocean-storm.png') no-repeat center center fixed;
-  background-size: cover;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: -40px; /* Push the hero section higher */
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(27, 38, 44, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 1rem 2rem;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent; /* No dark overlay */
-  z-index: 0;
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #BBE1FA;
 }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #BBE1FA;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3282B8;
+    transform: translateY(-3px);
+}
+
+/* Hero Section */
+#hero {
+    padding-top: 0;
+    justify-content: center;
+    text-align: center;
+}
+
 #heroText {
-  font-size: -webkit-xxx-large;
-}
-.hero p {
-  font-size: x-large;
-  margin-bottom: 2rem;
-}
-.hero .btn {
-  margin-top: 2rem;
+    font-size: 3rem;
 }
 
-
-/* Buttons (shared) */
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #BBE1FA;
-  background: transparent;
-  border: 2px solid #BBE1FA;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
-  text-decoration: none;
-}
-.btn:hover {
-  background: #BBE1FA;
-  color: #0F4C75;
-  transform: translateY(-5px);
+.hero-description {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    max-width: 800px;
 }
 
-/* About Section Cards (shared) */
+/* About Section */
+#about {
+    text-align: center;
+}
+
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  width: 100%;
-  margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
+
 .card {
-  background: rgba(255,255,255,0.1);
-  padding: 2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
+
 .card h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
-/* Projects Section (shared) */
+/* Projects Section */
+#projects {
+    text-align: center;
+}
+
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 1.5rem;
-  width: 100%;
-  margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
+
 .project-item {
-  background: rgba(255,255,255,0.1);
-  padding: 1.5rem;
-  border-radius: 8px;
-  transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .project-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Contact Section (shared) */
-.contact {
-  max-width: 800px;
-  margin-top: 3rem;
-  text-align: center;
+/* Gradient Wave for Opfynder */
+.gradient-wave {
+    background: linear-gradient(
+        -45deg,
+        #2FC0C6,
+        #9C2CD1,
+        #FF9A0B,
+        #FF5A8C,
+        #2FC0C6
+    );
+    background-size: 300% 300%;
+    animation: wave 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    margin-bottom: 0;
+    min-height: calc(100vh - 100px);
+}
+
 .contact p {
-  font-size: 1.4rem;  /* Larger text */
-  font-weight: 600;   /* Bolder text */
-  margin-bottom: 1.5rem;
-}
-.contact a.btn {
-  margin-top: 1rem;  /* Lower the "Email Me" button by 1rem */
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
 }
 
-/* Footer (shared) */
+/* Footer */
 footer {
-  text-align: center;
-  padding: 2rem;
-  background: transparent; /* Fully transparent footer */
+    margin-top: auto;
+    padding: 2rem;
+    text-align: center;
+    background: rgba(27, 38, 44, 0.8);
+    backdrop-filter: blur(5px);
 }
-footer p {
-  margin-bottom: 1rem;
-}
+
 footer .social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
+
 footer a {
-  color: #BBE1FA;
-  text-decoration: none;
-  font-size: 1.1rem;
+    color: #BBE1FA;
+    text-decoration: none;
+    font-size: 1.1rem;
 }
 
-/* Modal Styles (shared) */
-/* Updated Modal Container */
+/*********************************************************
+ * 5. SHARED COMPONENTS
+ *********************************************************/
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #BBE1FA;
+    background: transparent;
+    border: 2px solid #BBE1FA;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #BBE1FA;
+    color: #0F4C75;
+    transform: translateY(-5px);
+}
+
+/*********************************************************
+ * 5.5 MODAL STYLES
+ *********************************************************/
+
+/* Modal Container */
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: none; /* Hide modals by default */
-  justify-content: center;
-  align-items: flex-start;  /* Align to top if needed */
-  overflow-y: auto;         /* Allow scrolling */
-  z-index: 100;
-  padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 38, 44, 0.7);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
+.modal.open {
+    display: flex;
+    opacity: 1;
+    animation: modalFadeIn 0.3s ease forwards;
+}
 
-/* Updated Modal Content */
+/* Modal Content */
 .modal-content {
-  background: #1B262C;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 800px;
-  width: 100%;
-  color: #BBE1FA;
-  text-align: center;
-  max-height: 80vh;         /* limit the height to 80% of the viewport */
-  overflow-y: auto;         /* enable vertical scrolling within the modal content */
+    background: rgba(27, 38, 44, 0.95);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(187, 225, 250, 0.1);
+    display: flex;
+    flex-direction: column;
+    animation: modalScaleIn 0.3s ease forwards;
 }
 
+/* Modal Content Area */
+.content-area {
+    padding: 2rem;
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-bottom: 60px;
+}
+
+/* Scroll Fade Indicator */
+.scroll-fade::after {
+    content: '';
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(
+        transparent,
+        rgba(27, 38, 44, 0.95)
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.scroll-fade.has-overflow::after {
+    opacity: 1;
+}
+
+/* Modal Close Button */
+.close-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(50, 130, 184, 0.1);
+    border: none;
+    color: #BBE1FA;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.close-btn:hover {
+    background: rgba(50, 130, 184, 0.2);
+}
+
+/* Modal Typography */
 .modal-content h3 {
-  margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #BBE1FA;
 }
+
 .modal-content p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-.modal .close-btn {
-  background: #3282B8;
-  color: #BBE1FA;
-  padding: 0.5rem 1rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  transition: background 0.3s;
-  margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #BBE1FA;
 }
 
-.modal .close-btn:hover {
-  background: #BBE1FA;
-  color: #0F4C75;
-}
-
-.linkedin-btn svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-
-/* Responsive Adjustments (shared) */
+/*********************************************************
+ * 6. MEDIA QUERIES
+ *********************************************************/
 @media (max-width: 768px) {
-  header { padding: 1rem; }
-  #heroHeading { font-size: 3rem; }
-  .hero p { font-size: 1.2rem; }
-  section { padding: 80px 1rem; }
+    header {
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+
+    .modal-content h3 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 98%;
+        max-height: 90vh;
+    }
+
+    .content-area {
+        padding: 1.5rem;
+    }
 }
