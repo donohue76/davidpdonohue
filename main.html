@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>David P. Donohue | Portfolio &amp; Projects</title>
-    <meta name="description" content="David P. Donohue’s minimalist, creative, personal website showcasing innovation and accomplishments." />
+    <meta name="description" content="David P. Donohue's minimalist, creative, personal website showcasing innovation and accomplishments." />
     <meta name="keywords" content="David P Donohue, minimalist, creative, web developer, cybersecurity, software engineer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
@@ -58,10 +58,11 @@
         </div>
       </section>
 
-<!-- Projects Section -->
+      <!-- Projects Section -->
       <section id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
+<<<<<<< HEAD
           <!-- Opfynder Project -->
           <a href="https://opfynder.com" target="_blank" class="project-item">
             <div class="gradient-wave">
@@ -90,6 +91,9 @@
             <h3>Project Six</h3>
             <p>Last but not least </p>
           </div>
+=======
+          <!-- Project items will be populated dynamically -->
+>>>>>>> development
         </div>
       </section>
       
@@ -126,22 +130,79 @@
       </div>
     </div>
 
-    <!-- Smooth fade-in for the main container -->
+    <!-- Main Content Loading Script -->
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const container = document.getElementById("mainContainer");
-        container.style.opacity = 0;
-        setTimeout(() => {
-          container.style.transition = "opacity 1.5s ease";
-          container.style.opacity = 1;
-        }, 100);
-      });
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('content.json')
+        .then(response => response.json())
+        .then(content => {
+          const mainContent = content.main;
+          
+          // Update navigation
+          document.querySelector('.logo').textContent = mainContent.navigation.logo;
+          
+          // Update hero section
+          document.querySelector('#heroText').textContent = mainContent.hero.heading;
+          document.querySelector('.hero-description').textContent = mainContent.hero.description;
+          
+          // Update about section
+          document.querySelector('#about .section-title').textContent = mainContent.about.title;
+          
+          // Update projects section
+          document.querySelector('#projects .section-title').textContent = mainContent.projects.title;
+          const projectsGrid = document.querySelector('.projects-grid');
+          
+          // Clear existing projects
+          projectsGrid.innerHTML = '';
+          
+          // Add projects dynamically
+          mainContent.projects.items.forEach(project => {
+            const projectHTML = project.link 
+              ? `<a href="${project.link}" target="_blank" class="project-item">
+                  <div class="${project.hasGradientWave ? 'gradient-wave' : ''}">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                  </div>
+                </a>`
+              : `<div class="project-item">
+                  <h3>${project.title}</h3>
+                  <p>${project.description}</p>
+                </div>`;
+            projectsGrid.insertAdjacentHTML('beforeend', projectHTML);
+          });
+          
+          // Update contact section
+          document.querySelector('#contact .section-title').textContent = mainContent.contact.title;
+          document.querySelector('#contact .contact p').textContent = mainContent.contact.description;
+          document.querySelector('#contact .contact .btn').href = `mailto:${mainContent.contact.email}`;
+          
+          // Update footer
+          document.querySelector('footer p').textContent = mainContent.footer.copyright;
+          const footerSocialLinks = document.querySelector('footer .social-links');
+          footerSocialLinks.innerHTML = `
+            <a href="${mainContent.contact.socialLinks.github}" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="${mainContent.contact.socialLinks.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:${mainContent.contact.socialLinks.email}">Email</a>
+          `;
+          
+          // Store modal content globally
+          window.modalContent = mainContent.about.cards;
+        })
+        .catch(error => {
+          console.error('Error loading content:', error);
+          // Fallback to static content if JSON fails to load
+        });
 
-      // Modal functionality
-      const modal = document.getElementById("modal");
-      const modalTitle = document.getElementById("modalTitle");
-      const modalBody = document.getElementById("modalBody");
+      // Fade in main container
+      const container = document.getElementById("mainContainer");
+      container.style.opacity = 0;
+      setTimeout(() => {
+        container.style.transition = "opacity 1.5s ease";
+        container.style.opacity = 1;
+      }, 100);
+    });
 
+<<<<<<< HEAD
       function openModal(contentId) {
         const content = {
           myStory: {
@@ -162,19 +223,30 @@
         modalBody.textContent = content[contentId].body;
         modal.classList.add("open");
         document.body.style.overflow = "hidden"; // Disable background scrolling
+=======
+    // Modal functionality
+    function openModal(contentId) {
+      const content = window.modalContent[contentId];
+      if (content) {
+        document.getElementById("modalTitle").textContent = content.title;
+        document.getElementById("modalBody").textContent = content.content;
+        document.getElementById("modal").classList.add("open");
+        document.body.style.overflow = "hidden";
+>>>>>>> development
       }
+    }
 
-      function closeModal() {
-        modal.classList.remove("open");
-        document.body.style.overflow = ""; // Re-enable background scrolling
+    function closeModal() {
+      document.getElementById("modal").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    // Close modal on ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && document.getElementById("modal").classList.contains("open")) {
+        closeModal();
       }
-
-      // Close modal on ESC key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("open")) {
-          closeModal();
-        }
-      });
+    });
     </script>
   </body>
 </html>

@@ -1,0 +1,95 @@
+{
+  "index": {
+    "title": "David P. Donohue",
+    "subtitle": [
+      "Implementation Manager",
+      "Web Developer",
+      "Cybersecurity Enthusiast"
+    ],
+    "tagline": "Welcome to My World!",
+    "socialLinks": {
+      "github": "https://github.com/Donohue76",
+      "linkedin": "https://linkedin.com/in/davidpdonohue",
+      "email": "donohue76@hotmail.com"
+    }
+  },
+  "main": {
+    "navigation": {
+      "logo": "David P. Donohue",
+      "links": ["Home", "About", "Projects", "Contact"]
+    },
+    "hero": {
+      "heading": "Welcome",
+      "description": "My minimalist, stormy oceanic-themed outlet for personal and professional creativity, innovation, accomplishments and thoughts..."
+    },
+    "about": {
+      "title": "About Me",
+      "cards": {
+        "myStory": {
+          "title": "My Story",
+          "preview": "Learn more about me!",
+          "content": "This is where you can learn more about me. I have a passion for web development, cybersecurity, and innovation."
+        },
+        "resume": {
+          "title": "Resume",
+          "preview": "View my experience and skills.",
+          "content": "View my experience and skills. I have worked as an implementation manager, web developer, and cybersecurity enthusiast."
+        },
+        "favorites": {
+          "title": "Favorites",
+          "preview": "Check out my favorite things!",
+          "content": "Check out my favorite things! I enjoy coding, exploring new technologies, and spending time by the ocean."
+        }
+      }
+    },
+    "projects": {
+      "title": "Projects",
+      "items": [
+        {
+          "title": "Opfynder",
+          "description": "Opfynder is your personal job search and application tracker, simplifying your journey to career success.",
+          "link": "https://opfynder.com",
+          "hasGradientWave": true
+        },
+        {
+          "title": "Project Two",
+          "description": "A placeholder description for Project Two.",
+          "link": null
+        },
+        {
+          "title": "Project Three",
+          "description": "A placeholder description for Project Three.",
+          "link": null
+        },
+        {
+          "title": "Project Four",
+          "description": "A placeholder description for Project Four.",
+          "link": null
+        },
+        {
+          "title": "Project Five",
+          "description": "A placeholder description for Project Five.",
+          "link": null
+        },
+        {
+          "title": "Project Six",
+          "description": "Last but not least!",
+          "link": null
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "I'd love to hear from you! Whether you're interested in collaborating or just want to say hi, feel free to reach out.",
+      "email": "david@opfynder.com",
+      "socialLinks": {
+        "github": "https://github.com/donohue76",
+        "linkedin": "https://linkedin.com/in/davidpdonohue",
+        "email": "david@opfynder.com"
+      }
+    },
+    "footer": {
+      "copyright": "© 2025 David P. Donohue. All rights reserved."
+    }
+  }
+}
