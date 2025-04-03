@@ -62,38 +62,9 @@
       <section id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
-<<<<<<< HEAD
-          <!-- Opfynder Project -->
-          <a href="https://opfynder.com" target="_blank" class="project-item">
-            <div class="gradient-wave">
-              <h3>Opfynder</h3>
-              <p>Opfynder is your personal job search and application tracker, simplifying your journey to career success.</p>
-            </div>
-          </a>
-          <!-- Placeholder Projects -->
-          <div class="project-item">
-            <h3>Project Two</h3>
-            <p>Comming Soon!</p>
-          </div>
-          <div class="project-item">
-            <h3>Project Three</h3>
-            <p>Also Coming Soon!</p>
-          </div>
-          <div class="project-item">
-            <h3>Project Four</h3>
-            <p>Patience is a virtue!</p>
-          </div>
-          <div class="project-item">
-            <h3>Project Five</h3>
-            <p>Good thigns come to those who wait!</p>
-          </div>
-          <div class="project-item">
-            <h3>Project Six</h3>
-            <p>Last but not least </p>
-          </div>
-=======
+
           <!-- Project items will be populated dynamically -->
->>>>>>> development
+
         </div>
       </section>
       
@@ -202,28 +173,6 @@
       }, 100);
     });
 
-<<<<<<< HEAD
-      function openModal(contentId) {
-        const content = {
-          myStory: {
-            title: "My Story",
-            body: "Coming Soon!"
-          },
-          resume: {
-            title: "Resume",
-            body: "Experienced technology professional specializing in Healthcare IT, Software Engineering, Cloud Infrastructure, and Security &amp; Compliance. With a strong background in implementing and optimizing Electronic Medical Records (EMR) systems such as gMed, Allscripts, and XIFIN, I have consistently delivered successful, efficient go-lives across diverse healthcare environments. As a software engineer, I have developed and maintained robust web applications utilizing Ruby on Rails, JavaScript, Vue.js, React.js, and PostgreSQL, ensuring high-quality deployments and scalable cloud infrastructures."
-          },
-          favorites: {
-            title: "Favorites",
-            body: "Coming Soon!"
-          }
-        };
-
-        modalTitle.textContent = content[contentId].title;
-        modalBody.textContent = content[contentId].body;
-        modal.classList.add("open");
-        document.body.style.overflow = "hidden"; // Disable background scrolling
-=======
     // Modal functionality
     function openModal(contentId) {
       const content = window.modalContent[contentId];
@@ -232,7 +181,6 @@
         document.getElementById("modalBody").textContent = content.content;
         document.getElementById("modal").classList.add("open");
         document.body.style.overflow = "hidden";
->>>>>>> development
       }
     }
 
