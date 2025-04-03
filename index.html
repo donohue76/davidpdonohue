@@ -30,6 +30,43 @@
           <a href="mailto:donohue76@hotmail.com">Email</a>
       </div>
     </div>
+
+    <!-- Content Loading Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('content.json')
+        .then(response => response.json())
+        .then(content => {
+          const indexContent = content.index;
+          
+          // Update title
+          document.querySelector('h1').textContent = indexContent.title;
+          
+          // Update subtitles
+          const subtitleContainer = document.querySelector('.subtitle');
+          subtitleContainer.innerHTML = indexContent.subtitle
+            .map(text => `<div>${text}</div>`)
+            .join('');
+          
+          // Update tagline
+          document.querySelector('.intro-tagline').textContent = indexContent.tagline;
+          
+          // Update social links
+          const socialLinks = document.querySelector('.social-links');
+          socialLinks.innerHTML = `
+            <a href="${indexContent.socialLinks.github}" target="_blank">GitHub</a>
+            <a href="${indexContent.socialLinks.linkedin}" target="_blank">LinkedIn</a>
+            <a href="mailto:${indexContent.socialLinks.email}">Email</a>
+          `;
+        })
+        .catch(error => {
+          console.error('Error loading content:', error);
+          // Fallback to static content if JSON fails to load
+        });
+    });
+    </script>
+
+    <!-- Navigation Script -->
     <script>
       function fadeOutAndRedirect() {
         const container = document.getElementById('splashContainer');
@@ -39,6 +76,7 @@
         }, 1000); // 1 second fade-out
       }
     </script>
+    
     <script src="script.js"></script>
   </body>
 </html>
