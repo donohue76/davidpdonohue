@@ -509,6 +509,30 @@ footer a {
     color: #BBE1FA;
 }
 
+/* Resume LinkedIn Button Styles */
+.linkedin-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #BBE1FA;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.linkedin-icon-btn:hover {
+    background: rgba(187, 225, 250, 0.2);
+    transform: translateY(-2px);
+}
+
+.linkedin-icon-btn i {
+    font-size: 1.2rem;
+}
+
 /*********************************************************
  * 5.6 FAVORITES STYLES
  *********************************************************/
@@ -629,4 +653,16 @@ footer a {
     .content-area {
         padding: 1.5rem;
     }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .resume-social-links {
+    margin-top: 1.5rem;
+  }
+  
+  .resume-linkedin-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
 }
