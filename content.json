@@ -32,13 +32,40 @@
         },
         "resume": {
           "title": "Resume",
-          "preview": "View my experience and skills.",
-          "content": "View my experience and skills. I have worked as an implementation manager, web developer, and cybersecurity enthusiast."
+          "preview": "My Professional Summary",
+          "content": "<p>I'm a healthcare IT implementation leader and full-stack developer with 10+ years of experience helping providers, administrators, and health systems adopt and optimize technology that improves care delivery. My career spans EHR implementations, SaaS deployment, cloud infrastructure, and regulatory compliance, with a proven track record of leading complex projects from kickoff to go-live with 100% success.</p>\n\n<p>I've worked across startups and enterprise systems—building secure, scalable platforms, training clinical teams, and bridging the gap between technical teams and frontline healthcare providers. My background in cybersecurity, cloud architecture, and web development complements my deep understanding of healthcare workflows and patient-centered design.</p>\n\n<p>As a cancer survivor and the child of two physicians, I bring a personal passion to the work I do: creating technology that helps people—not hinders them—in their moments of care.</p>"
         },
         "favorites": {
-          "title": "Favorites",
+          "title": "My Favorites",
           "preview": "Check out my favorite things!",
-          "content": "Check out my favorite things! I enjoy coding, exploring new technologies, and spending time by the ocean."
+          "categories": {
+            "Personal": [
+              { "label": "Color", "value": "Blue" },
+              { "label": "Scent", "value": "Mediterranean Lavender / Allure by Chanel (tie)" },
+              { "label": "Quote", "value": "It is better to remain silent and only thought a fool than to open ones mouth and remove all doubt!" },
+              { "label": "Beverage", "value": "Original Coke / Sweet Tea (tie)" },
+              { "label": "Food", "value": "Japanese / Seafood (tie)" }
+            ],
+            "Entertainment": [
+              { "label": "Movie", "value": "Stand By Me" },
+              { "label": "TV Show", "value": "Family Ties" },
+              { "label": "Video Game", "value": "Baldur's Gate" },
+              { "label": "Book", "value": "Lord of The Rings - J.R.R. Tolkien" },
+              { "label": "Author", "value": "C.S. Lewis / T.S. Eliott (tie)" },
+              { "label": "Song", "value": "All Too Well / Mayonaise (tie)" },
+              { "label": "Musician/Band", "value": "Taylor Swift / Smashing Pumpkins/U2 (tie)" }
+            ],
+            "Nature": [
+              { "label": "Animal", "value": "Killer Whale" },
+              { "label": "Season", "value": "Spring" }
+            ],
+            "Tech": [
+              { "label": "Programming Language", "value": "Python" },
+              { "label": "Framework", "value": "Django and Vue.js" },
+              { "label": "Code Editor", "value": "Sublime" },
+              { "label": "Line of Code", "value": "" }
+            ]
+          }
         }
       }
     },
@@ -53,22 +80,22 @@
         },
         {
           "title": "Project Two",
-          "description": "A placeholder description for Project Two.",
+          "description": "Coming Soon!",
           "link": null
         },
         {
           "title": "Project Three",
-          "description": "A placeholder description for Project Three.",
+          "description": "Also Coming Soon!",
           "link": null
         },
         {
           "title": "Project Four",
-          "description": "A placeholder description for Project Four.",
+          "description": "Coming Later",
           "link": null
         },
         {
           "title": "Project Five",
-          "description": "A placeholder description for Project Five.",
+          "description": "Coming a Little Later",
           "link": null
         },
         {

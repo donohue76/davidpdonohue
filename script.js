@@ -190,17 +190,55 @@ async function openModal(contentId) {
     
     const data = await response.json();
     
-    if (!data.main || !data.main.about || !data.main.about.cards) {
-      throw new Error('Invalid content structure');
-    }
-
+    // Get content from the correct location in your JSON structure
     const content = data.main.about.cards[contentId];
     if (!content) {
       throw new Error(`Content not found for: ${contentId}`);
     }
 
     modalTitle.textContent = content.title;
-    modalBody.innerHTML = content.content;
+
+    if (contentId === 'favorites') {
+      const favoritesContainer = document.createElement('div');
+      favoritesContainer.className = 'favorites-container';
+
+      // Loop through each category
+      Object.entries(content.categories).forEach(([categoryName, items]) => {
+        const categorySection = document.createElement('div');
+        categorySection.className = 'favorites-category';
+        
+        // Add category title
+        const categoryTitle = document.createElement('h4');
+        categoryTitle.textContent = categoryName;
+        categoryTitle.className = 'favorites-category-title';
+        categorySection.appendChild(categoryTitle);
+        
+        // Create list for items
+        const itemsList = document.createElement('ul');
+        itemsList.className = 'favorites-list';
+        
+        // Add each item to the list
+        items.forEach(item => {
+          if (item.label && item.value) { // Only add items that have both label and value
+            const listItem = document.createElement('li');
+            listItem.className = 'favorites-item';
+            listItem.innerHTML = `<strong>${item.label}:</strong> ${item.value}`;
+            itemsList.appendChild(listItem);
+          }
+        });
+        
+        // Only append the category if it has items
+        if (itemsList.children.length > 0) {
+          categorySection.appendChild(itemsList);
+          favoritesContainer.appendChild(categorySection);
+        }
+      });
+      
+      modalBody.innerHTML = '';
+      modalBody.appendChild(favoritesContainer);
+    } else {
+      modalBody.innerHTML = content.content;
+    }
 
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
